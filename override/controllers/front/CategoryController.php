@@ -55,7 +55,8 @@ class CategoryController extends CategoryControllerCore
         ));
 
         foreach ($this->cat_products as &$product) {
-            $product['name'] = "Funda para " . Tools::safeOutput($this->category->name) . " " . str_replace("Funda para móvil ", "", $product['name']);
+            //This was used to replace funda para movil with actual model names, but caused problems with categories that were not fundas:
+            //$product['name'] = "Funda para " . Tools::safeOutput($this->category->name) . " " . str_replace("Funda para móvil ", "", $product['name']);
 
             if (isset($product['id_product_attribute']) && $product['id_product_attribute'] && isset($product['product_attribute_minimal_quantity'])) {
                 $product['minimal_quantity'] = $product['product_attribute_minimal_quantity'];
